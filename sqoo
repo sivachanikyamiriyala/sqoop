@@ -1,0 +1,187 @@
+  780  echo $SQOOP_HOME
+  783  echo $SQOOP_HOME
+  813  sqoop list-databases   --connect "jdbc:mysql://localhost:3306"   --username root   --password hadoop
+  815  sqoop list-databases   --connect "jdbc:mysql://localhost:3306"   --username root   --password hadoop
+  821  ps -ef | grep -i sqoop
+  822  sqoop list-databases   --connect "jdbc:mysql://localhost:3306"   --username=root   -- password=hadoop 
+  832  sqoop list-databases   --connect "jdbc:mysql://localhost:3306"   --username=root   -- password=hadoop 
+  834  sqoop list-databases   --connect "jdbc:mysql://localhost:3306"   --username=root   --password=hadoop ;
+  836  echo $SQOOP_HOME
+  837  sqoop list-databases   --connect "jdbc:mysql://localhost:3306"   --username root   --password hadoop
+  840  sqoop list-databases --connect "jdbc:mysql://localhost" --username root   --password hadoop
+  841  mysqldump -u root -p kalyan > /home/siva/work/sqoop_inputs/kalyan.sql
+  843  echo $SQOOP_HOME
+  844  sqoop
+  852  export SQOOP_HOME=/home/orienit/work/sqoop-1.4.6.bin__hadoop-2.0.4-alpha
+  853  export PATH=$SQOOP_HOME/bin:$PATH
+  854  echo $SQOOP_HOME
+  855  sqoop
+  856  echo $SQOOP_HOME
+  858  echo $SQOOP_HOME
+  860  echo $SQOOP_HOME
+  862  echo $SQOOP_HOME
+  863  sqoop
+  866  ls -l  Kalyan_Hadoop_Class_Material_2018/Kalyan_Admin_Training_Class_Material_2018/sqoop_1.4.6/
+  867  cp Kalyan_Hadoop_Class_Material_2018/Kalyan_Admin_Training_Class_Material_2018/sqoop_1.4.6/sqoop-1.4.6.bin__hadoop-2.0.4-alpha.tar.gz ~/work/
+  871  tar -xvzf sqoop-1.4.6.bin__hadoop-2.0.4-alpha.tar.gz 
+  874  rm sqoop-1.4.6.bin__hadoop-2.0.4-alpha.tar.gz 
+  877  echo $SQOOP_HOME
+  879  history  | grep -i sqoop
+  880  sqoop list-databases   --connect "jdbc:mysql://localhost:3306"   --username root   --password hadoop
+  882  history | grep -i sqoop
+  886  sqoop list-databases   --connect "jdbc:mysql://localhost:3306"   --username root   --password hadoop
+  887  sqoop list-databases   --connect "jdbc:mysql://localhost:3306" 
+  888  sqoop list-databases   --connect "jdbc:mysql://localhost:3306"   --username=root   --password=hadoop
+  889  sqoop --list-tables   --connect "jdbc:mysql://localhost:3306"   --username=root   --password=hadoop
+  890  sqoop --list-tables   --connect "jdbc:mysql://localhost:3306/mysql"   --username=root   --password=hadoop
+  891  sqoop list-databases   --connect "jdbc:mysql://localhost:3306"   --username=root   --password=hadoop
+  892  sqoop --list-tables   --connect "jdbc:mysql://localhost:3306/mysql"   --username=root   --password=hadoop
+  893  sqoop --list-databases --connect "jdbc:mysql://localhost:3306" --username=root --password=hadoop
+  894  sqoop list-databases   --connect "jdbc:mysql://localhost:3306"   --username=root   --password=hadoop
+  895  sqoop list-tables   --connect "jdbc:mysql://localhost:3306/mysql"   --username=root   --password=hadoop
+  896  sqoop eval /
+  897  sqoop eval   --connect "jdbc:mysql://localhost:3306/mysql"   --username=root   --password=hadoop   --query "select * from db"
+  898  sqoop eval   --connect "jdbc:mysql://localhost:3306/mysql"   --username=root   --password=hadoop   --query "select User from db"
+  899  sqoop eval   --connect "jdbc:mysql://localhost:3306/mysql"   --username=root   --password=hadoop   --query "select User,count(*) from db"
+  900  sqoop eval   --connect "jdbc:mysql://localhost:3306/mysql"   --username=root   --password=hadoop   --query "select User,count(distict User) from db"
+  901  sqoop eval   --connect "jdbc:mysql://localhost:3306/mysql"   --username=root   --password=hadoop   --query "select User,count(1) from db"
+  902  ls -l work/sqoop_inputs/connection_details.txt
+  903  vi work/sqoop_inputs/connection_details.txt
+  904  ls -l work/sqoop_inputs/connection_details.txt
+  905  vi work/sqoop_inputs/connection_details.txt
+  906  sqoop eval   --options-file /home/siva/work/sqoop_inputs/connection_details.txt 
+  907  sqoop eval   --options-file /home/siva/work/sqoop_inputs/connection_details.txt   --query "show tables" 
+  908  sqoop import-all-tables
+  909  sqoop import-all-tables   --connect "jdbc:mysql://localhost:3306/mysql"   --username=root   --password=hadoop   --warehouse-dir=/sqoop/import-all-data/mysql.db   --exclude-tables event
+  910  sqoop import   --option-file /home/siva/work/sqoop_inputs/connection_details.txt   --table db   --as-textfile   --target-dir=/sqoop/import-data/db.db/part-m-00000   -m 1
+  911  vi work/sqoop_inputs/connection_details.txt
+  912  sqoop import   --option-file /home/siva/work/sqoop_inputs/connection_details.txt   --table mysql.db   --as-textfile   --target-dir=/sqoop/import-data/db.db/part-m-00000   -m 1
+  913  sqoop import   --option-file /home/siva/work/sqoop_inputs/connection_details.txt   --table mysql.db   --as-textfile   --target-dir=/sqoop/import-data/db.db/part-m-00000   
+  914  sqoop import   --connect "jdbc:mysql://localhost:3306/mysql"   --username=root   --password=hadoop   --as-textfile   --target-dir=/sqoop/import-data/db.db/part-m-00000   -m 1
+  915  sqoop import   --connect "jdbc:mysql://localhost:3306/mysql"   --username=root   --password=hadoop   --as-textfile   --target-dir=/sqoop/import-data/db.db/part-m-00000   -m 1
+  916  sqoop import   --connect "jdbc:mysql://localhost:3306/mysql"   --username=root   --password=hadoop   --table db   --as-textfile   --target-dir=/sqoop/import-data/db.db/part-m-00000   -m 1
+  917  sqoop import   --connect "jdbc:mysql://localhost:3306/mysql" \ 
+  918  sqoop import   --connect "jdbc:mysql://localhost:3306/mysql" \ 
+  919  sqoop import   --connect "jdbc:mysql://localhost:3306/mysql" \ 
+  920  sqoop import \ --connect "jdbc:mysql://localhost:3306/mysql" \ --username=root \ --password=hadoop \ --table user \ --as-sequencefile \ --target-dir /sqoop/import-data/user.db/user_split_by \ --split-by Host \
+  921  sqoop import \ --connect "jdbc:mysql://localhost:3306/mysql" \ --username=root \ --password=hadoop \ --table user \ --as-sequencefile \ --target-dir /sqoop/import-data/user.db/user_split_by \ --split-by Host 
+  923  sqoop import   --connect "jdbc:mysql://localhost:3306/mysql"  \ 
+  924  sqoop import \ 
+  925  sqoop import \ --connect "jdbc:mysql://localhost:3306/mysql" \ --username=root \ --password=hadoop \ --table user \ --as-textfile \ --target-dir /sqoop/boundry-data/mysql.db/user \ --delete-target-dir \ --boundry-query "select 1,3 from user limit 3" \ -m 1
+  926  sqoop import \ --connect "jdbc:mysql://localhost:3306/mysql" \ --username=root \ --password=hadoop \ --table user \ --as-textfile \ --target-dir /sqoop/boundry-data/mysql.db/user \ --delete-target-dir \ --boundry-query "select 1,3 from user limit 3" 
+  928  vi work/sqoop_inputs/connection_details.txt
+  929  sqoop list-databases --options-file /home/siva/work/sqoop_inputs/connection_details.txt
+  930  vi work/sqoop_inputs/connection_details.txt
+  931  sqoop list-tables --options-file /home/siva/work/sqoop_inputs/connection_details.txt
+  932  sqoop export --options-file /home/siva/work/sqoop_inputs/connection_details.txt --export-dir /sqoop/user/users.txt --table siva.user -m 1
+  933  sqoop export --options-file /home/siva/work/sqoop_inputs/connection_details.txt --export-dir /sqoop/user/users.txt --table siva.user -m 1 --batch
+  934  sqoop export --connect "jdbc:mysql://localhost:3306/siva" --username root --password hadoop --table users --export-dir /sqoop/user/users.txt --num-mappers 1 --batch
+  935  sqoop export --connect "jdbc:mysql://localhost:3306/siva" --username root --password hadoop --table users --export-dir /sqoop/user/ --num-mappers 1 --batch
+  937  sqoop export --connect "jdbc:mysql://localhost:3306/siva" --username root --password hadoop --table users --export-dir /sqoop/user/ --num-mappers 1 --batch
+  938  mysql -u root -p kalyan < /home/siva/work/sqoop_inputs/kalyan.sql 
+  939  mysql -u root -p sqoop < /home/siva/work/sqoop_inputs/sqoop.sql 
+  940  sqoop list-databases --options-file /home/siva/work/sqoop_inputs/connection_details.txt
+  941  sqoop list-tables --options-file /home/siva/work/sqoop_inputs/connection_details.txt
+  942  sqoop list-tables --options-file /home/siva/work/sqoop_inputs/connection_details.txt 
+  943  sqoop list-tables --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop 
+  944  sqoop eval --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --query "select * from orders" 
+  945  sqoop eval --options-file /home/siva/work/sqoop_inputs/connection_details.txt
+  946  sqoop eval --options-file /home/siva/work/sqoop_inputs/connection_details.txt --query "show tables" 
+  947  sqoop eval --options-file /home/siva/work/sqoop_inputs/connection_details.txt --query "show kalyan.tables" 
+  948  sqoop import-all-tables --connection "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --warehouse-dir /sqoop/import-all-data/kalyan.db
+  949  sqoop eval --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --query "select * from orders" 
+  950  sqoop import-all-tables --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --warehouse-dir /sqoop/import-all-data/kalyan.db --exclude orders
+  951  sqoop import-all-tables \ 
+  952  sqoop import-all-tables 
+  953  sqoop import-all-tables --connect "jdbc:mysql://localhost:3306/kalyan" \  
+  956  --warehouse-dir /sqoop/import-all-data/kalyan.db \ 
+  958  sqoop import-all-tables --connect "jdbc:mysql://localhost:3306/kalyan" \  
+  961  --warehouse-dir /sqoop/import-all-data/kalyan.db \ 
+  963  vi sqoop1
+  964  sqoop import-all-tables
+  966  vi sqoop1
+  967  sqoop import-all-tables   --connect "jdbc:mysql://localhost:3306/kalyan"   --username=root   --password=hadoop   --warehouse-dir /sqoop/import-all-data/kalyan.db   --exclude orders
+  968  sqoop list-databases --connect "jdbc:mysql://localhost:3306" --username root --password hadoop 
+  969  sqoop list-tables --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop 
+  970  sqoop eval --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --query "select count(*) from orders" 
+  971  vi work/sqoop_inputs/connection_details.txt
+  972  sqoop eval --options-file /home/siva/work/sqoop_inputs/connection_details.txt --query "select count(*) from orders" 
+  973  ls -l work/sqoop_inputs/connection_details.txt
+  974  sqoop import-all-tables --connect "jdbc:mysql://localhost:3306" --username root --password hadoop --warehouse-dir /siva1/import-all-data/kalyan.db --exclude orders
+  975  sqoop import-all-tables --connect "jdbc:mysql://localhost:3306" --username root --password hadoop --warehouse-dir /sqoop/import-all-data/kalyan.db --exclude-tables orders
+  976  sqoop import-all-tables --connect "jdbc:mysql://localhost:3306" --username root -p --warehouse-dir /sqoop/import-all-data/kalyan.db --exclude-tables orders
+  977  sqoop import-all-tables --connect "jdbc:mysql://localhost:3306" --username root --password hadoop --warehouse-dir /sqop/import-all-data/kalyan.db --exclude-tables orders
+  978  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table pet --target-table /sqoop/import-data/sqoop/pet1 --as-textfile -m 1
+  979  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table pet --target-table /sqoop/import-data/sqoop/pet1 --as-textfile --split-by name
+  980  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table pet --target-table /sqoop/import-data/sqoop/pet1 --as-textfile --split-by name -m 4
+  981  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table pet --target-table /sqoop/import-data/sqoop/pet1 --as-textfile --split-by name -m 1
+ 1001  cd work/sqoop_inputs/
+ 1004  mysql -u root -p kalyan < /home/siva/work/sqoop_inputs/kalyan.sql 
+ 1005  mysql -u root -p sqoop < /home/siva/work/sqoop_inputs/sqoop.sql 
+ 1013  sqoop list-databases \ 
+ 1015  sqoop list-databases --connect "jdbc:mysql://localhost:3306"  --username root --password hadoop
+ 1016  sqoop list-tables --connect "jdbc:mysql://localhost:3306/kalyan"  --username root --password hadoop
+ 1017  sqoop eval --connect "jdbc:mysql://localhost:3306/kalyan"  --username root --password hadoop --query "select count(*) from orders "
+ 1020  sqoop eval --options-file /home/siva/connect --query "show tables "
+ 1022  sqoop eval --options-file /home/siva/connect --query "show tables "
+ 1024  hdfs dfs -rm -r /sqoop/
+ 1026  sqoop import-all-tables --connect "jdbc:mysql://localhost:3306/kalyan"  --username root --password hadoop --warehouse-dir /sqoop/import-all-data/kalyan.db/ --exclude-tables orders 
+ 1027  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop --username root --password hadoop --table pet --target-dir /sqoop/import-data/sqoop.db/pet -m 1 --as-textfile
+ 1028  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop --username root --password hadoop --table pet --target-dir /sqoop/import-data/sqoop.db/pet  --as-textfile -m 1
+ 1029  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table pet --target-dir /sqoop/import-data/sqoop.db/pet  --as-textfile -m 1
+ 1030  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop --username root --password hadoop --table pet --target-dir /sqoop/import-data/sqoop.db/pet-split --as-textfile --split-by name 
+ 1031  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table pet --target-dir /sqoop/import-data/sqoop.db/pet-split --as-textfile --split-by name 
+ 1032  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table student --target-dir /sqoop/boundary-query/sqoop.db/student --delete-target-dir --boundary-query "select 1,10 from student limit 1" --columns id,name,class -m 1
+ 1033  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table student --target-dir /sqoop/boundary-query/sqoop.db/student --append --boundary-query "select 11,20 from student limit 1" --fields-terminated-by ',' --lines-terminated-by '\n' --num-mappers 1
+ 1034  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table student --target-dir /sqoop/boundary-query/sqoop.db/student --append --fields-terminated-by ',' --lines-terminated-by '\n' --split-by id --outdir java_files --bindir bin_files
+ 1045  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --query "select * from student where $CONDITIONS" --target-dir /sqoop/query/sqoop.db/student --num-mappers 2 --split-by name
+ 1046  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --query "select * from student where $CONDITIONS" --target-dir /sqoop/query/sqoop.db/student --num-mappers 2 --split-by id
+ 1047  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --query "select * from student where $CONDITIONS" --target-dir /sqoop/query/sqoop.db/student --num-mappers 1 --split-by id
+ 1048  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --query "select * from student where $CONDITIONS" --target-dir /sqoop/query/sqoop.db/student --split-by id --num-mapers 2
+ 1049  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --query "select * from student where $CONDITIONS" --target-dir /sqoop/query/sqoop.db/student --split-by id 
+ 1051  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table student --taget-dir /sqoop/data/sqoop.db/student --fields-terminated-by ',' --lines-terminated-by '\n' --where "id <= 10" --outdir java_files -m 1
+ 1052  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table student --taget-dir /sqoop/data/sqoop.db/student --delete-target-dir --fields-terminated-by ',' --lines-terminated-by '\n' --where "id <= 10" --outdir java_files -num-mappers 1
+ 1053  sqoop import --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --table departments --target-dir /sqoop/kalyan.db/departments1 --delete-target-dir --fields-terminated-by ',' --lines-terminated-by '\n' --as-textfile --num-mapers 1 --outdir java_files
+ 1054  cd sqoop/
+ 1067  cd sqoop/
+ 1085  mysql -u root -p kalyan </home/siva/work/sqoop_inputs/kalyan.sql 
+ 1086  mysql -u root -p sqoop < /home/siva/work/sqoop_inputs/sqoop.sql 
+ 1087  sqoop list-all-databases --connect "jdbc:mysql://localhost:3306/" --username root --password hadoop 
+ 1088  sqoop
+ 1089  sqoop list-databases --connect "jdbc:mysql://localhost:3306/" --username root --password hadoop 
+ 1090  sqoop list-tables --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop 
+ 1091  sqoop eval --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --query "show tables" 
+ 1092  cat work/sqoop_inputs/connection_details.txt
+ 1099  sqoop eval --options-file ram --query "show tables" 
+ 1102  hdfs dfs -rm -r /sqoop 
+ 1104  sqoop import-all-tables --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --warehouse-dir /sqoop/import-all-data/kalyan.db/ --exclude-tables orders
+ 1105  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --target-dir /sqoop/import-data/sqoop.db/pet --as-textfile --num-mappers 1 
+ 1106  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table pet --target-dir /sqoop/import-data/sqoop.db/pet --as-textfile --num-mappers 1 
+ 1107  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table pet --target-dir /sqoop/import-data/sqoop.db/pet-split --as-textfile --split-by name
+ 1108  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table student --target-dir /sqoop/boundary-data/sqoop.db/student --delte-target-dir --boundary-query "select 1,10 from from student limit 1" --columns id,name,class --m 1
+ 1109  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table student --target-dir /sqoop/boundary-data/sqoop.db/student --delte-target-dir --boundary-query "select 1,10 from from student limit 1" --columns id,name,class -m 1
+ 1110* sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table student --target-dir /sqoop/boundary-data/sqoop.db/student --boundary-query "select 1,10 froom student limit 1" --columns id,name,class -m 1
+ 1111  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table student --target-dir /sqoop/boundary-data/sqoop.db/student --delte-target-dir --boundary-query "select 1,10 from student limit 1" --columns id,name,class -m 1
+ 1112  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table student --target-dir /sqoop/boundary-data/sqoop.db/student --delete-target-dir --boundary-query "select 1,10 from student limit 1" --columns id,name,class -m 1
+ 1113  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table student --target-dir /sqoop/boundary-data/sqoop.db/student --append --boundary-query "select 11,20 from student limit 1" --fields-terminated-by ',' --lines-terminated-by '\n' -m 1 
+ 1114  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table student --target-dir /sqoop/boundary-data/sqoop.db/student --append --fields-terminated-by ',' --lines-terminated-by '\n' --as-textfile --split-by id --outdir java_files  
+ 1115  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --target-dir /sqoop/query/sqoop.db/student --query 'select * from student where $CONDITIONS ' --split-by id --num-mappers 2
+ 1116  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table student --target-dir /sqoop/data/sqoop.db/student --fields-terminated-by ',' --lines-terminated-by '\n' --delete-target-dir --where "id <= 10" --outdir jaba_files -m 1
+ 1117  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --table student --target-dir /sqoop/data/sqoop.db/student --query 'select * from student where id <= 20 and $CONDITIONS ' --last-value 10 --check-column "id" --incremental append --append -m 1
+ 1118  sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password hadoop --target-dir /sqoop/data/sqoop.db/student --query 'select * from student where id <= 20 and $CONDITIONS ' --last-value 10 --check-column "id" --incremental append --append -m 1
+ 1119  sqoop import --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --table departments1 --target-dir /sqoop/kalyan.db/departments -m 1
+ 1120  sqoop export --connect "jdbc:mysql://localhost:3306" --username root --password hadoop --export-dir /sqoop/kalyan.db/departments --table departments2 --input-fields-terminated-by ',' --input-lines-terminated-by '\n' --batch -m 1
+ 1121  sqoop export --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --export-dir /sqoop/kalyan.db/departments --table departments2 --input-fields-terminated-by ',' --input-lines-terminated-by '\n' --batch -m 1
+ 1125  sqoop eval --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --query 'update departments1 set department_name = "updated" where id =7'
+ 1126  sqoop eval --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --query 'update departments1 set department_name = "updated" where department_id =7'
+ 1127  sqoop eval --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --query 'insert into departments1 values(11,"inserted")'
+ 1128  sqoop eval --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --query 'select * from departments1'
+ 1129  sqoop import --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --table departments1 --target-dir /sqoop/kalyan.db/departments1 --where "departments_id >=7" --lines-terminated-by '\n' --fields-terminated-by ',' -m 1
+ 1130  sqoop import --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --table departments1 --target-dir /sqoop/kalyan.db/departments1 --where "department_id >=7" --lines-terminated-by '\n' --fields-terminated-by ',' -m 1
+ 1131  sqoop import --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --table departments1 --target-dir /sqoop/kalyan.db/departments1 --delete-target-dir --where "department_id >= 7" --lines-terminated-by '\n' --fields-terminated-by ',' -m 1
+ 1132  sqoop export --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password --table departments3 --export-dir /sqoop/kalyan.db/departments/ -m 1 --input-fields-terminated-by ',' --input-lines-terminated-by '\n' 
+ 1133  sqoop export --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --table departments3 --export-dir /sqoop/kalyan.db/departments/ -m 1 --input-fields-terminated-by ',' --input-lines-terminated-by '\n' 
+ 1134  sqoop export --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop --table departments3 --export-dir /sqoop/kalyan.db/departments1/ -m 1 --input-fields-terminated-by ',' --input-lines-terminated-by '\n' --update-key department_id --update-mode allowinsert
+ 1135  history | grep -i sqoop
+ 1137  history | grep -i sqoop
+ 1138  history | grep -i sqoop >scoo
