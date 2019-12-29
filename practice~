@@ -221,6 +221,9 @@ How to improve the performance of a sqoop job:
  This can be done by incresing the number of mappers 
    --batch  
    bounch of records 
+   fetch-size
+
+--fetch-size to import multiple records in a single shot of time 
 
 
 
