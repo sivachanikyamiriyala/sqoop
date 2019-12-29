@@ -117,7 +117,141 @@ sqoop import --options-file file --target-dir /sqoop/data/sqoop.db/student --que
   when importing the data from rdbms to hdfs if a table having 1000 records we loaded some of them in to hdfs and second day we have to load remaining instead of seeing hdfs we have to do? The last value will be maintaind by metastore derby there is a concept called stat it wil maintain last value 
 
 
-  
+  There is a table in kalyan database departments .create a new table departments1 and departments2 
+   create table kalyan.departments1 as select * from kalyan.departments 
+   create table kalyan.departments2 as kalyan.departments 
+
+case:import table departments1 into hdfs and export to rdbms departments2 table with same target-dir 
+
+sqoop import --options-file file --table departments1 --target-dir /sqoop/kalyan.db/departments --as-textfile --fields-terminated-by '\t' --lines-terminated-by '\t' -m 1
+
+#To export the data 
+ a)Table must and should be present 
+ b)Data and Schema should match 
+ c)Sqoop validates the constraints null notnulls etc 
+
+sqoop export --options-file file --table departments2 --export-dir /sqoop/kalyan.db/departments --num-mappers 1 --input-fields-terminated-by '\t' --input-lines-terminated-by '\n' --batch 
+
+
+
+sqoop job :
+-----------
+sqoop job --list
+sqoop job --show myjob1 
+sqoop job --delete myjob1
+sqoop job --exec myjob2 
+
+How to create sqoop job's : 
+sqoop job --create myjob1 \
+  --list-databases \
+  --connect " " \
+  --username root \
+  --password hadoop 
+sqoop job list 
+sqoop job --show myjob1 
+sqoop job --exec myjob1 
+
+sqoop job --create myjob2 \ 
+  --list-tables \
+  --connect " " \
+  --username root \
+  --password hadoop 
+in sqoop we have an option --outdir java_files --bindir bin_files 
+
+case: using sqoop update the row in rdbms kalyan.departments1 
+      insert the data 
+      query the data using select 
+update the record in rdbms :
+-------------------------------
+sqoop eval --options-file file --query 'update departments1 set department_name = "updated" where department_id =7" '
+
+insert the record in rdbms:
+----------------------------
+sqoop eval --options-file file --query 'insert into departments1 values(8,"updated") ' 
+
+Read the data from rdbms :
+-----------------------------
+sqoop eval --options-file file --query 'select * from kalyan.departments1' 
+
+sqoop import --options-file file --table departments1 --target-dir /sqoop/kalyan.db/departments1_delta --lines-terminated-by '\n' --fields-terminated-by '\t' --as-textfile -m 1 --bindir bin_files --outdir java_files 
+
+Export the data from hdfs to rdbms using update-mode :
+-------------------------------------------------------
+
+sqoop export --options-file file --table departments2 --export-dir /sqoop/kalyan.db/departments1_delta --input-lines-terminated-by '\n' --input-fields-terminated-by '\t' --batch --update-key department_id --update-mode updateonly -m 1
+
+sqoop export --options-file file --table departments2 --export-dir /sqoop/kalyan.db/departments1_delta --input-lines-terminated-by '\n' --input-fields-terminated-by '\t'  --batch -m 1 --update-key department_id --update-mode allowinsert outdir java_files 
+
+case: 
+------
+student 
+------------------------
+|     id   | name      |
+-------------------------
+         1  |    shaym  |
+-------------------------
+          2 | null      |
+--------------------------
+       null |    siva   |
+-------------------------
+      null  |   null   |
+------------------------
+
+
+I want i place of null in id columns as not a number and in place of name column which are having nulls as NA
+
+sqoop import \
+  --options-file filename 
+  --table student 
+  --target-dir /sqoop/kalayn.db/student 
+  --delete-target-dir 
+  --as-textfile 
+  --null-string "NA" 
+  --null-non-string "not a number"
+  --lines-terminated-by '\n' 
+  --fields-terminated-by '\t' 
+  --num-mappers 1 
+
+
+Note:if a table not having pk must and should use number of mappers are 1 
+ if a table not having pk we want number of mappers are 4 then use --split-by 
+
+How to improve the performance of a sqoop job: 
+------------------------------------------------
+ This can be done by incresing the number of mappers 
+   --batch  
+   bounch of records 
+   fetch-size
+
+--fetch-size to import multiple records in a single shot of time 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
