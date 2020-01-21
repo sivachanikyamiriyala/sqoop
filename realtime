@@ -1,0 +1,136 @@
+sqoop list-databases --connect "jdbc:mysql://localhost:3306" --username root --password hadoop 
+
+sqoop list-tables --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop 
+
+mysqldump -u root -p kalyan>/home/siva/kalyan.db 
+mysql -u root -p sqoop>/home/siva/sqoop.db
+
+mysql -u root -p kalyan </home/siva/kalyan.db 
+mysql -u root -p sqoop </home/siva/sqoop.db 
+
+sqoop eval --options-file file --query 'select count(*) from orders' 
+
+sqoop eval --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password-file file:///home/siva/sqoop/passwordfile --query 'select * from orders' 
+
+
+
+sqoop import-all-tables --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password-file file:///home/siva/sqoop/passwordfile --warehouse-dir /sqoop/import-all-data/kalyan.db --exclude-tables orders -m 1 --fields-terminated-by '\t' --lines-terminated-by '\n' --as-textfile 
+
+
+sqoop import --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password-file file:///home/siva/sqoop/passwordfile --table orders --target-dir /sqoop/import-data/kalyan.db/orders/m1 --num-mappers 1 --as-textfile --fields-terminated-by '\t' --lines-terminated-by '\n' 
+
+sqoop import --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password-file file:///home/siva/sqoop/passwordfile --table orders --target-dir /sqoop/import-data/kalyan.db/orders/sp-id --split-by order_id --fields-terminated-by '\t' --lines-terminated-by '\n' --as-textfile  
+
+
+sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password-file file:///home/siva/sqoop/passwordfile --boundary-query "select 1,10 from student limit 1" --table student --target-dir /sqoop/import-boundary-query/sqoop.db/student -m 1 --fields-terminated-by '\t' --lines-terminated-by '\n' --as-textfile  
+
+
+
+sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password-file file:///home/siva/sqoop/passwordfile --boundary-query "select 11,20 from student limit 1" --table student --append --target-dir /sqoop/import-boundary-query/sqoop.db/student -m 1 --fields-terminated-by '\t' --lines-terminated-by '\n' --as-textfile  
+
+
+sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password-file file:///home/siva/sqoop/passwordfile --table student --append --target-dir /sqoop/import-boundary-query/sqoop.db/student --split-by id --fields-terminated-by '\t' --lines-terminated-by '\n' --as-textfile   
+
+
+sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password-file file:///home/siva/sqoop/passwordfile --query 'select * from student where $CONDITIONS' --target-dir /sqoop/query/sqoop/student --split-by id -m 2 --fields-terminated-by '\t' --lines-terminated-by '\n' --as-textfile 
+
+sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password-file file:///home/siva/sqoop/passwordfile --table student --target-dir /sqoop/data/sqoop/student --fields-terminated-by '\t' --lines-terminated-by '\n' --as-textfile --where "id<=10" --columns id,name   
+
+sqoop import --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password-file file:///home/siva/sqoop/passwordfile --table student --target-dir /sqoop/data/sqoop/student --fields-terminated-by '\t' --lines-terminated-by '\n' --as-textfile --append --incremental append -m 1 --check-column id --last-value 10 
+
+sqoop job --list
+sqoop job --show myjob1 
+sqoop job --delete myjob1 
+sqoop job --exec myjob1  
+
+sqoop job --create myjob --list-databases --connect "jdbc:mysql://localhost:3306/sqoop" --username root --password-file file:///home/siva/sqoop/passwordfile
+
+sqoop job --create myjob2 --list-tables --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password hadoop 
+
+sqoop job --list
+
+sqoop job --show myjob2 
+
+
+mysql> create table if not exists departments1 as select * from departments ;
+
+mysql> create table if not exists departments2 like departments ;
+
+
+mysql> select * from departments;
++---------------+-----------------+
+| department_id | department_name |
++---------------+-----------------+
+|             2 | Fitness         |
+|             3 | Footwear        |
+|             4 | Apparel         |
+|             5 | Golf            |
+|             6 | Outdoors        |
+|             7 | Fan Shop        |
++---------------+-----------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from departments1;
++---------------+-----------------+
+| department_id | department_name |
++---------------+-----------------+
+|             2 | Fitness         |
+|             3 | Footwear        |
+|             4 | Apparel         |
+|             5 | Golf            |
+|             6 | Outdoors        |
+|             7 | Fan Shop        |
++---------------+-----------------+
+6 rows in set (0.01 sec)
+
+mysql> select * from departments2;
+Empty set (0.00 sec)
+
+sqoop import --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password-file file:///home/siva/sqoop/passwordfile --table departments1 --target-dir /sqoop/kalyan.db/departments --num-mappers 1 --fields-terminated-by '\t' --lines-terminated-by '\n' --as-textfile 
+
+sqoop export --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password-file file:///home/siva/sqoop/passwordfile --table departments2 --export-dir /sqoop/kalyan.db/departments --num-mappers 1 --batch --input-fields-terminated-by '\t' --input-lines-terminated-by '\n'
+
+mysql> select * from departments2;
++---------------+-----------------+
+| department_id | department_name |
++---------------+-----------------+
+|             2 | Fitness         |
+|             3 | Footwear        |
+|             4 | Apparel         |
+|             5 | Golf            |
+|             6 | Outdoors        |
+|             7 | Fan Shop        |
++---------------+-----------------+
+6 rows in set (0.00 sec)
+
+sqoop eval --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password-file file:///home/siva/sqoop/passwordfile --query "update departments1 set department_name='updated' where department_id=7 "
+
+sqoop eval --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password-file file:///home/siva/sqoop/passwordfile --query "insert into departments1 values (8,'inserted') " 
+
+sqoop eval --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password-file file:///home/siva/sqoop/passwordfile --query "select * from departments1 "
+
+sqoop import --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password-file file:///home/siva/sqoop/passwordfile --table departments1 --where "department_id>=7" --target-dir /sqoop/kalyan/departments --fields-terminated-by '\t' --lines-terminated-by '\n' --as-textfile -m 1
+
+sqoop export --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password-file file:///home/siva/sqoop/passwordfile --table departments2 --update-key department_id --update-mode updateonly --export-dir /sqoop/kalyan/departments --batch -m 1 --input-fields-terminated-by '\t' --input-lines-terminated-by '\n' 
+
+
+sqoop export --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password-file file:///home/siva/sqoop/passwordfile --table departments2 --update-key department_id --update-mode allowinsert --export-dir /sqoop/kalyan/departments --batch -m 1 --input-fields-terminated-by '\t' --input-lines-terminated-by '\n'  
+
+
+
+------------------->>>>>SQOOP+HIVE<<<<<<<<<<<---------------------
+
+sqoop import-all-tables --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password-file file:///home/siva/sqoop/passwordfile --hive-import --hive-overwrite --create-hive-table --warehouse-dir /sqoop/hive/kalyan.db --compress --compression-codec org.apache.hadoop.io.compress.Bzip2Codec --outdir java_files --bindir bin_files -m 1  
+
+
+sqoop import --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password-file file:///home/siva/sqoop/passwordfile --table orders --hive-import --hive-overwrite --hive-table myorders1  
+
+sqoop import --connect "jdbc:mysql://localhost:3306/kalyan" --username root --password-file file:///home/siva/sqoop/passwordfile --table orders
+--hive-import --hive-overwrite --create-hive-table --hive-table myorders2 
+
+
+--fetch-size ------> Number of entries to read from database at once.
+--null-string------> The string to be written for a null value for string columns
+--null-non-string--> The string to be written for a null value for non-string columns
+
+
